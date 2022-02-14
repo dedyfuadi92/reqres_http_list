@@ -28,14 +28,18 @@ class _MyAppState extends State<MyApp> {
               Text(
                 output,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 18),
               ),
               ElevatedButton(
                 onPressed: () {
-                  User.getUser('1').then((users) {
+                  User.getUser('2').then((users) {
                     output = '';
                     for (var i = 0; i < users.length; i++) {
-                      output = output + '[' + users[i].name + ']\n\n';
+                      output = output +
+                          (i + 1).toString() +
+                          '.) ' +
+                          users[i].name +
+                          '\n';
                     }
                     setState(() {});
                   });
